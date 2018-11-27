@@ -7,6 +7,7 @@ const mongoose = require('mongoose');
  * service ： 操作数据库的文件存放的地方
  * view ： 存放一些需要服务器渲染的页面的.html或.tpl文件的地方
  * router.js :分配接口路由的文件
+ * test for git
  */
 module.exports = appInfo => {
   const config = exports = {
@@ -25,7 +26,6 @@ module.exports = appInfo => {
 
   exports.mongoose = {
     url: 'mongodb://127.0.0.1:27017/anqi',
-    // url: 'mongodb://127.0.0.1:2714//anqi',
     options: {}
   }
 

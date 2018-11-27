@@ -5,10 +5,16 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  // require('./route/home')(app)
-  // require('./route/user')(app)
+
+  /********* 使用 route 方式 分发路由  ***************
+  ********** require('./route/home')(app) **********
+  ********** require('./route/user')(app) **********
+  **************************************************/
+
   router.get('/', controller.home.index);
-  // // 定义了一个路由地址, 对应的是controller下面的user文件里面的list方法
-  // // console.info('YA TENG');
-  router.get('/get', controller.user.list); // /controller/user.js ====> list()
+  // /controller/user.js ====> list() 定义了一个路由地址, 对应的是controller下面的user文件里面的list方法
+  router.get('/api/user/getUserList', controller.user.list);
+  router.get('/api/user/getLoginUser', controller.user.login);
+  // router.resources('user', '/api/user/getUserList', controller.user);
+ 
 };
