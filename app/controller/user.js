@@ -23,11 +23,29 @@ class UserController extends Controller {
         console.info(this.ctx.request.body)
         let req_param = this.ctx.request.body
         let res = await ctx.service.user.createUser({
-            // _id: ctx.app.mongoose.Types.ObjectId(utils_tool.objectId()),
-            _id: ctx.app.mongoose.Types.ObjectId('123456789012'),
+            _id: ctx.app.mongoose.Types.ObjectId(utils_tool.objectId()),
+            // _id: ctx.app.mongoose.Types.ObjectId('123456789012'),
             name: req_param.name,
             password: req_param.password
         })
+        ctx.body = res;
+    }
+
+    async deleteUser(data) {
+        const ctx = this.ctx;
+        // 使用 ctx.request.body 获取 POST 请求的所有 参数
+        console.info(this.ctx.request.body)
+        let req_param = this.ctx.request.body
+        let res = await ctx.service.user.deleteUser(req_param)
+        ctx.body = res;
+    }
+
+    async updateUser(data) {
+        const ctx = this.ctx;
+        // 使用 ctx.request.body 获取 POST 请求的所有 参数
+        console.info(this.ctx.request.body)
+        let req_param = this.ctx.request.body
+        let res = await ctx.service.user.updateUser(req_param)
         ctx.body = res;
     }
 

@@ -38,6 +38,30 @@ class UserService extends Service {
             return { success: false, status: -1, msg: "ERROR", result: err }
         })
     }
+
+    async deleteUser(param) {
+        const ctx = this.ctx
+        // console.info(ctx.model.User)
+        // console.info('in service')
+        // console.info(param)
+        return ctx.model.User.deleteOne(param).then(res => {
+            return { success: true, status: 1, msg: "OK", result: res }
+        }).catch(err => {
+            return { success: false, status: -1, msg: "ERROR", result: err }
+        })
+    }
+    // 
+    async updateUser(param) {
+        const ctx = this.ctx
+        // console.info(ctx.model.User)
+        // console.info('in service')
+        // console.info(param)
+        return ctx.model.User.updateOne({ "_id": param._id }, param).then(res => {
+            return { success: true, status: 1, msg: "OK", result: res }
+        }).catch(err => {
+            return { success: false, status: -1, msg: "ERROR", result: err }
+        })
+    }
 }
 
 module.exports = UserService;
