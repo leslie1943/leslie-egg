@@ -6,8 +6,14 @@ class UserController extends Controller {
     async list() {
         const ctx = this.ctx;
 
+        // 🚀-------------------------------------------------------🚀
+        // 🚀-------------------------------------------------------🚀
         // 使用 ctx.queries获取 GET 请求的所有 参数
+        // or
         // console.info((ctx.queries.id)[0]);
+        // 🚀-------------------------------------------------------🚀
+        // https://eggjs.org/zh-cn/basics/controller.html
+        // 🚀-------------------------------------------------------🚀
 
         // 此处将操作数据库, 所以调用的是 service 文件夹里的 user.js 文件里面的 list 方法.
         // 调用这个方法后, 会返回一个数据, 用 res 来接收
@@ -42,7 +48,16 @@ class UserController extends Controller {
 
     async updateUser(data) {
         const ctx = this.ctx;
+        // 🚀-------------------------------------------------------🚀
+        // 🚀-------------------------------------------------------🚀
         // 使用 ctx.request.body 获取 POST 请求的所有 参数
+        // 🚀-------------------------------------------------------🚀
+        // 🚀-------------------------------------------------------🚀
+
+        // ❌❌❌ 
+        // ❌一个常见的错误是把 ctx.request.body 和 ctx.body 混淆，后者其实是 ctx.response.body 的简写
+        // ❌❌❌
+
         console.info(this.ctx.request.body)
         let req_param = this.ctx.request.body
         let res = await ctx.service.user.updateUser(req_param)
@@ -51,13 +66,12 @@ class UserController extends Controller {
 
     async login() {
         const ctx = this.ctx;
+        console.info(ctx.query)
 
-        // 使用 ctx.queries获取 GET 请求的所有 参数
-        // console.info((ctx.queries.id)[0]);
-        // console.info((ctx.queries));
+        // 使用 ctx.query 获取 GET 请求的所有 参数
         let param = {
-            name: (ctx.queries.name)[0],
-            password: (ctx.queries.password)[0]
+            name: ctx.query.name,
+            password: ctx.query.password
         }
 
         // 此处将操作数据库, 所以调用的是 service 文件夹里的 user.js 文件里面的 list 方法.
