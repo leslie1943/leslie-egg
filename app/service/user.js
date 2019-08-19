@@ -5,15 +5,12 @@ class UserService extends Service {
     // /controller/user =======> ctx.service.user.list()
     async list() {
         const ctx = this.ctx;
-        // return ctx.model.User.find({"name":"suzhen"}); // /model/user.js 定义的 model.
         return ctx.model.User.find()
     }
 
     async login(con) {
         const ctx = this.ctx;
-        // console.info('con');
         console.info(con);
-        // return ctx.model.User.find({"name":"suzhen"}); // /model/user.js 定义的 model.
         return ctx.model.User.findOne(con).then(res => {
             console.info(res);
             if (res) {
@@ -28,10 +25,6 @@ class UserService extends Service {
 
     async createUser(param) {
         const ctx = this.ctx
-        // console.info(ctx.model.User)
-        // console.info('in service')
-        // console.info(param)
-        debugger
         return ctx.model.User.create(param).then(res => {
             return { success: true, status: 1, msg: "OK", result: res }
         }).catch(err => {
@@ -41,9 +34,6 @@ class UserService extends Service {
 
     async deleteUser(param) {
         const ctx = this.ctx
-        // console.info(ctx.model.User)
-        // console.info('in service')
-        // console.info(param)
         return ctx.model.User.deleteOne(param).then(res => {
             return { success: true, status: 1, msg: "OK", result: res }
         }).catch(err => {
@@ -53,9 +43,6 @@ class UserService extends Service {
     // 
     async updateUser(param) {
         const ctx = this.ctx
-        // console.info(ctx.model.User)
-        // console.info('in service')
-        // console.info(param)
         return ctx.model.User.updateOne({ "_id": param._id }, param).then(res => {
             return { success: true, status: 1, msg: "OK", result: res }
         }).catch(err => {

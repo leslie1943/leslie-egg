@@ -5,7 +5,6 @@ class UserController extends Controller {
     // 这个 list 方法就是 router.js 里的 controller.user.list 里面的 list
     async list() {
         const ctx = this.ctx;
-
         // 🚀-------------------------------------------------------🚀
         // 🚀-------------------------------------------------------🚀
         // 使用 ctx.queries获取 GET 请求的所有 参数
