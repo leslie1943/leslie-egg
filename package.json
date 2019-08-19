@@ -8,7 +8,8 @@
     "egg-mongoose": "^3.1.1",
     "egg-scripts": "^2.5.0",
     "egg-sequelize": "^4.2.0",
-    "mongoose": "^5.3.12"
+    "mongoose": "^5.3.12",
+    "egg-plugin-ua": "../egg-plugin-ua"
   },
   "devDependencies": {
     "autod": "^3.0.1",

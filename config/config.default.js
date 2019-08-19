@@ -12,9 +12,9 @@ module.exports = appInfo => {
   const config = exports = {
     security: {
       csrf: {
-        enable: false
-      }
-    }
+        enable: false,
+      },
+    },
   };
 
   // use for cookie sign key, should change to your own and keep security
@@ -25,8 +25,8 @@ module.exports = appInfo => {
 
   exports.mongoose = {
     url: 'mongodb://127.0.0.1:27017/anqi',
-    options: {}
-  }
+    options: {},
+  };
 
   return config;
 };
