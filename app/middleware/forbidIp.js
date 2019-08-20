@@ -16,34 +16,36 @@ module.exports = (options, app) => {
     if (isForbidIp) {
       console.info('This message from middleware [forbidIp]: Your IP is in black list.')
       ctx.status = 403
-      // background-image:url(https://images.pexels.com/photos/1409990/pexels-photo-1409990.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);background-repeat:no-repeat;
       ctx.body = `
-      <div style="height:100vh;width:100vw;background-color:rgb(233, 233, 235);">
-      <h1 style="padding-top:20px;text-align:center;color:red;">Your IP has been forbidden to access!</h1>
-      <div style="text-align:center;">
-      <a style="display: inline-block;
-        line-height: 1;
-        text-decoration:none;
-        white-space: nowrap;
-        cursor: pointer;
-        background: #409eff;
-        border: 1px solid #dcdfe6;
-        color: white;
-        -webkit-appearance: none;
-        text-align: center;
-        box-sizing: border-box;
-        outline: none;
-        margin: 0;
-        transition: .1s;
-        font-weight: 500;
-        -moz-user-select: none;
-        -webkit-user-select: none;
-        -ms-user-select: none;
-        padding: 12px 20px;
-        font-size: 14px;
-        border-radius: 4px;" 
-        href="/">Back</a>
-        </div>
+      <div style="height:100vh;width:100vw;background-color:rgb(0, 0, 0);">
+        <h1 style="padding-top:20px;text-align:center;color:red;">Your IP has been forbidden to access!</h1>
+        <div style="text-align:center;">
+          <a style="display: inline-block;
+            line-height: 1;
+            text-decoration:none;
+            white-space: nowrap;
+            cursor: pointer;
+            background: #409eff;
+            border: 1px solid #dcdfe6;
+            color: white;
+            -webkit-appearance: none;
+            text-align: center;
+            box-sizing: border-box;
+            outline: none;
+            margin: 0;
+            transition: .1s;
+            font-weight: 500;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;" 
+            href="/">Back</a>
+          </div>
+          <div style="text-align:center;margin-top:20px;">
+            <img style="width:50vw;height:80vh;" src="/public/image/destination.jpg" />
+          </div>
       </div>`
     } else {
       await next()

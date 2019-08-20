@@ -40,18 +40,22 @@ module.exports = app => {
     blacklist: ['127.0.0.1']
   })
 
+  // ⏹ home ⏹
   router.get('/', controller.home.index);
   // /controller/user.js ====> list() 定义了一个路由地址, 对应的是controller下面的user文件里面的list方法
 
-  // ------------ user api ------------
+  // ------------ ⏹ user ⏹ api ------------
   router.get('/api/user/getUserList', controller.user.list);
   router.get('/api/user/getLoginUser', controller.user.login);
   router.post('/api/user/createUser', controller.user.createUser);
   router.post('/api/user/deleteUser', controller.user.deleteUser);
   router.post('/api/user/updateUser', controller.user.updateUser);
 
-  // ------------ menu api 注意 get/post ------------
+  // ------------ ⏹ menu ⏹ api 注意 get/post ------------
   router.get('/api/menu/list', forbidIp, controller.menu.list); // 🌅🌅🌅
   // router.resources('user', '/api/user/getUserList', controller.user);
+
+  // ------------ ⏹ post ⏹ restful url   ------------
+  router.resources('posts', '/api/posts', controller.posts)
 
 };
