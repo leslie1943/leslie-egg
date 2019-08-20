@@ -4,6 +4,22 @@
  * @param {Egg.Application} app - egg application
  */
 module.exports = app => {
+
+  // 在这里可以注册app级别的变量和插件
+  app.appNum = Math.floor(Math.random() * 100)
+
+  /**** 
+    // 🏳‍🌈 before start
+    app.beforeStart(() => {
+      console.info('Life cycle before start...')
+    })
+
+    // 🏳‍🌈 will ready
+    app.ready(() => {
+      console.info('Life cycle will ready...')
+    })
+   ****/
+
   const { router, controller } = app;
 
   /** ******* 使用 route 方式 分发路由  ***************
@@ -18,6 +34,12 @@ module.exports = app => {
   🚀🚀🚀🚀🚀🚀🚀 [ 4: model    ] 🚀🚀🚀🚀🚀🚀🚀
   **************************************************/
 
+
+  // 🌅🌅🌅 在路由中使用中间件, 以 api/menu/lis t为例 🌅🌅🌅
+  const forbidIp = app.middleware.forbidIp({
+    blacklist: ['127.0.0.1']
+  })
+
   router.get('/', controller.home.index);
   // /controller/user.js ====> list() 定义了一个路由地址, 对应的是controller下面的user文件里面的list方法
 
@@ -29,7 +51,7 @@ module.exports = app => {
   router.post('/api/user/updateUser', controller.user.updateUser);
 
   // ------------ menu api 注意 get/post ------------
-  router.get('/api/menu/list', controller.menu.list);
+  router.get('/api/menu/list', forbidIp, controller.menu.list); // 🌅🌅🌅
   // router.resources('user', '/api/user/getUserList', controller.user);
 
 };

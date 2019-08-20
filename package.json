@@ -16,6 +16,8 @@
     "autod-egg": "^1.0.0",
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
+    "commitizen": "^4.0.3",
+    "cz-conventional-changelog": "^3.0.2",
     "egg-bin": "^4.3.5",
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.14.0",
@@ -38,7 +40,8 @@
     "cov": "egg-bin cov",
     "lint": "eslint .",
     "ci": "npm run lint && npm run cov",
-    "autod": "autod"
+    "autod": "autod",
+    "commit": "git-cz"
   },
   "ci": {
     "version": "8"
@@ -47,6 +50,11 @@
     "type": "git",
     "url": ""
   },
-  "author": "",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "author": "Leslie",
   "license": "MIT"
 }
