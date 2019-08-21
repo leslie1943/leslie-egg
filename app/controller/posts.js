@@ -1,5 +1,6 @@
 const Controller = require('egg').Controller;
 
+
 class PostsController extends Controller {
   async index() {
     const ctx = this.ctx;
@@ -7,11 +8,24 @@ class PostsController extends Controller {
   }
 
   async create() {
+    // validate rules
+    const createRule = {
+      name: { type: 'email' },
+      password: { type: 'password', compare: 'repassword' },
+    }
     const ctx = this.ctx;
-    // console.info('ctx.params', ctx.params)
-    // console.info('ctx.request.body', ctx.request.body)
-    // console.info('ctx.query', ctx.query);
-    ctx.body = `[create] response: your request body is ${JSON.stringify(ctx.request.body)}`;
+    try {
+      // need to install package egg-validate
+      ctx.validate(createRule)
+      // console.info('ctx.params', ctx.params)
+      // console.info('ctx.request.body', ctx.request.body)
+      // console.info('ctx.query', ctx.query);
+      ctx.body = { status: 1, msg: `[create] response: your request body is ${JSON.stringify(ctx.request.body)}` }
+    } catch (err) {
+      console.info(err)
+      ctx.body = { status: -1, msg: 'invalid params' }
+    }
+
   }
 
   async show() {

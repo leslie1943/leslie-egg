@@ -6,10 +6,11 @@
   "dependencies": {
     "egg": "^2.2.1",
     "egg-mongoose": "^3.1.1",
+    "egg-plugin-ua": "../egg-plugin-ua",
     "egg-scripts": "^2.5.0",
     "egg-sequelize": "^4.2.0",
-    "mongoose": "^5.3.12",
-    "egg-plugin-ua": "../egg-plugin-ua"
+    "egg-validate": "^2.0.2",
+    "mongoose": "^5.3.12"
   },
   "devDependencies": {
     "autod": "^3.0.1",

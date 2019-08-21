@@ -41,7 +41,7 @@ class HomeController extends Controller {
         padding: 12px 20px;
         font-size: 14px;
         border-radius: 4px;" 
-        href="/api/menu/list">get menu list </a></div>
+        href="/api/forbid/list">Test middleware</a></div>
     </div>`
     console.info('______this.ctx.isIOS______: ', this.ctx.isIOS);
     // 🚀🚀🚀 this place can be retrived different msg from server side.

@@ -34,7 +34,6 @@ module.exports = app => {
   🚀🚀🚀🚀🚀🚀🚀 [ 4: model    ] 🚀🚀🚀🚀🚀🚀🚀
   **************************************************/
 
-
   // 🌅🌅🌅 在路由中使用中间件, 以 api/menu/lis t为例 🌅🌅🌅
   const forbidIp = app.middleware.forbidIp({
     blacklist: ['127.0.0.1']
@@ -52,8 +51,10 @@ module.exports = app => {
   router.post('/api/user/updateUser', controller.user.updateUser);
 
   // ------------ ⏹ menu ⏹ api 注意 get/post ------------
-  router.get('/api/menu/list', forbidIp, controller.menu.list); // 🌅🌅🌅
-  // router.resources('user', '/api/user/getUserList', controller.user);
+  router.get('/api/menu/list', controller.menu.list);
+
+  // ------------ ⏹ forbid ⏹ 测试指定路由中使用中间件 ------------
+  router.get('/api/forbid/list', forbidIp, controller.forbid.list); // 🌅🌅🌅
 
   // ------------ ⏹ post ⏹ restful url   ------------
   router.resources('posts', '/api/posts', controller.posts)
