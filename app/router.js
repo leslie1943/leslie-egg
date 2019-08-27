@@ -34,7 +34,7 @@ module.exports = app => {
   🚀🚀🚀🚀🚀🚀🚀 [ 4: model    ] 🚀🚀🚀🚀🚀🚀🚀
   **************************************************/
 
-  // 🌅🌅🌅 在路由中使用中间件, 以 api/menu/lis t为例 🌅🌅🌅
+  // 🌅🌅🌅 在路由中使用中间件, 以 api/menu/list为例 🌅🌅🌅
   const forbidIp = app.middleware.forbidIp({
     blacklist: ['127.0.0.1']
   })
@@ -42,6 +42,9 @@ module.exports = app => {
   // ⏹ home ⏹
   router.get('/', controller.home.index);
   // /controller/user.js ====> list() 定义了一个路由地址, 对应的是controller下面的user文件里面的list方法
+
+  // ------------ ⏹ 内部重定向, 起始路由, 重定向路由, action code. ⏹ ------------
+  router.redirect('/home/index', '/', 302);
 
   // ------------ ⏹ user ⏹ api ------------
   router.get('/api/user/getUserList', controller.user.list);
@@ -59,4 +62,6 @@ module.exports = app => {
   // ------------ ⏹ post ⏹ restful url   ------------
   router.resources('posts', '/api/posts', controller.posts)
 
+  // ------------ ⏹ 重定向 ⏹ ------------
+  router.get('/api/search', app.middlewares.uppercase(), controller.search.index)
 };
