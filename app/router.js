@@ -15,6 +15,9 @@ module.exports = app => {
   🚀🚀🚀🚀🚀🚀🚀 [ 4: model    ] 🚀🚀🚀🚀🚀🚀🚀
   **************************************************/
 
+  // ⏹ 👮‍‍‍‍‍‍👮‍♂️自定义校验规则 拆分模块分发 ⏹
+  require('./validator/index')(app); // 🎃
+
   //  ------------ ⏹ home ⏹  ------------
   router.get('/', controller.home.index);
   router.redirect('/home/index', '/', 302);   // ⏹ 内部重定向, 起始路由, 重定向路由, action code. ⏹
@@ -27,4 +30,6 @@ module.exports = app => {
 
   //  ⏹ 使用中间件将某一类请求的参数都大写 ⏹ 
   router.get('/api/search', app.middlewares.uppercase(), controller.search.index)
+  router.get('/api/search/ruleJson', controller.search.checkRuleJson)
+  router.get('/api/search/ruleString', controller.search.checkRuleString)
 };

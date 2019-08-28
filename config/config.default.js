@@ -49,5 +49,15 @@ module.exports = appInfo => {
     dir: path.join(appInfo.baseDir, 'logs')
   }
 
+  config.session = {
+    key: 'visited',
+    maxAge: 10000, // 毫秒
+    httpOnly: true,
+    encrypt: true,
+    renew: true // 每次访问页面都会给session会话延长时间
+  }
+
+
+
   return config;
 };
