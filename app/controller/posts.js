@@ -1,6 +1,5 @@
 const Controller = require('egg').Controller;
 
-
 class PostsController extends Controller {
   async index() {
     const ctx = this.ctx;
@@ -25,7 +24,6 @@ class PostsController extends Controller {
       console.info(err)
       ctx.body = { status: -1, msg: 'invalid params' }
     }
-
   }
 
   async show() {
@@ -59,7 +57,6 @@ class PostsController extends Controller {
     console.info('ctx.query', ctx.query);
     ctx.body = `[destroy] response: your request parameters is ${JSON.stringify(ctx.params)}`;
   }
-
 
   /**
    * request source:
