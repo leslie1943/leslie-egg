@@ -21,7 +21,6 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1542268744967_8677';
 
-
   /**
    * 该 forbidIp 指向与 app/middleware 中的 forbidIp.js
    * 因此需要注意大小写
@@ -56,8 +55,5 @@ module.exports = appInfo => {
     encrypt: true,
     renew: true // 每次访问页面都会给session会话延长时间
   }
-
-
-
   return config;
 };

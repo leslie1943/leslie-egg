@@ -7,6 +7,12 @@ module.exports = app => {
   // ⏹ 在这里可以注册app级别的变量和插件 ⏹
   app.appNum = Math.floor(Math.random() * 100)
 
+  // ⏹ 调用定时任务 ⏹
+  app.beforeStart(async () => {
+    await app.runSchedule('schedule_print_time')
+    await app.runSchedule('schedule_print_visited')
+  })
+
   const { router, controller } = app;
   /** *************** 调用层级  *********************
   🚀🚀🚀🚀🚀🚀🚀 [ 1:router.js ] 🚀🚀🚀🚀🚀🚀🚀
