@@ -37,8 +37,9 @@ module.exports = appInfo => {
   // 🌅🌅🌅 如果要在路由中使用中间件,需要将上述代码写在router.js文件而不是config.default.js里 🌅🌅🌅
 
   // 🚀🚀🚀🚀🚀 全局使用中间件 🚀🚀🚀🚀🚀
-  config.middleware = ['printIp'];
+  config.middleware = ['printIp', 'errorHandler'];
 
+  // mongoose
   exports.mongoose = {
     url: 'mongodb://127.0.0.1:27017/anqi',
     options: {},
@@ -55,5 +56,6 @@ module.exports = appInfo => {
     encrypt: true,
     renew: true // 每次访问页面都会给session会话延长时间
   }
+
   return config;
 };

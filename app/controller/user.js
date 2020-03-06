@@ -28,8 +28,7 @@ class UserController extends Controller {
     console.info(this.ctx.request.body);
     const req_param = this.ctx.request.body;
     const res = await ctx.service.user.createUser({
-      _id: ctx.app.mongoose.Types.ObjectId(utils_tool.objectId()),
-      // _id: ctx.app.mongoose.Types.ObjectId('123456789012'),
+      // _id: ctx.app.mongoose.Types.ObjectId(utils_tool.objectId()), 无需传递,model自动生成
       name: req_param.name,
       password: req_param.password,
     });

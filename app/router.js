@@ -5,7 +5,7 @@
  */
 module.exports = app => {
   // ⏹ 在这里可以注册app级别的变量和插件 ⏹
-  app.appNum = Math.floor(Math.random() * 100)
+  app.appNum = 1
 
   // ⏹ 调用定时任务 ⏹
   app.beforeStart(async () => {

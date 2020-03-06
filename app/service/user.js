@@ -25,11 +25,19 @@ class UserService extends Service {
 
   async createUser(param) {
     const ctx = this.ctx;
-    return ctx.model.User.create(param).then(res => {
-      return { success: true, status: 1, msg: 'OK', result: res };
-    }).catch(err => {
-      return { success: false, status: -1, msg: 'ERROR', result: err };
-    });
+    return ctx.model.User.findOne(param).then(res => {
+      if (res && res._id) {
+        return { success: false, status: -1, msg: 'This id has been existed!' };
+      } else {
+        console.info('res', res)
+        return ctx.model.User.create(param).then(res => {
+          return { success: true, status: 1, msg: 'OK', result: res };
+        }).catch(err => {
+          return { success: false, status: -1, msg: 'ERROR', result: err };
+        });
+      }
+    })
+
   }
 
   async deleteUser(param) {
