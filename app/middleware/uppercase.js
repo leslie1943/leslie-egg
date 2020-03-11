@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = (options, app) => {
   return async function uppercase(ctx, next) {
     for (let item in ctx.query) {

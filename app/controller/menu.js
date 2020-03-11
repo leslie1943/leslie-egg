@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const Controller = require('egg').Controller;
 
 class MenuController extends Controller {

@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable */
 const chalk = require('chalk');
 const Controller = require('egg').Controller;
 class HomeController extends Controller {

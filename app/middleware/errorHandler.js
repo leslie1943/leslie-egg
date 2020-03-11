@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = (options, app) => {
   return async function errorHandler(ctx, next) {
     // console.info('error handler middleware')

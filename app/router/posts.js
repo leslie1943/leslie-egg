@@ -1,3 +1,4 @@
+/* eslint-disable */
 // ------------ ⏹ post ⏹ restful url   ------------
 module.exports = app => {
   const { router, controller } = app;

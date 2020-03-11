@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Subsription = require('egg').Subscription
 const chalk = require('chalk');
 

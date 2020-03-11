@@ -1,6 +1,7 @@
+/* eslint-disable */
 'use strict';
 const mongoose = require('mongoose');
-const path = require('path')
+const path = require('path');
 /**
  * controller : 分发路由接口请求的文件夹
  * middleware ： 存放中间件的文件夹
@@ -24,8 +25,8 @@ module.exports = appInfo => {
   /**
    * 该 forbidIp 指向与 app/middleware 中的 forbidIp.js
    * 因此需要注意大小写
-   * 然后下面的 exports.forbidIp = {}; forbidIp中间件的名字也需要一样的 
-   * exports.forbidIp 里面的对象就是中间件的ip配置了 
+   * 然后下面的 exports.forbidIp = {}; forbidIp中间件的名字也需要一样的
+   * exports.forbidIp 里面的对象就是中间件的ip配置了
    */
   // exports.forbidIp = {
   //   // 属性为middleware的 options
@@ -46,16 +47,16 @@ module.exports = appInfo => {
   };
 
   config.logger = {
-    dir: path.join(appInfo.baseDir, 'logs')
-  }
+    dir: path.join(appInfo.baseDir, 'logs'),
+  };
 
   config.session = {
     key: 'visited',
     maxAge: 10000, // 毫秒
     httpOnly: true,
     encrypt: true,
-    renew: true // 每次访问页面都会给session会话延长时间
-  }
+    renew: true, // 每次访问页面都会给session会话延长时间
+  };
 
   return config;
 };

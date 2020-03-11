@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const Controller = require('egg').Controller;
 
 const utils_tool = require('../utils/index');

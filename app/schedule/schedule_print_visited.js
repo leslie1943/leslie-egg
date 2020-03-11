@@ -1,4 +1,6 @@
-const Subsription = require('egg').Subscription
+/* eslint-disable */
+
+const Subsription = require('egg').Subscription;
 const chalk = require('chalk');
 
 module.exports = app => {
@@ -17,10 +19,10 @@ module.exports = app => {
       // } else {
       //   console.info(chalk.red(`【${new Date()}】:call epro service fail!`))
       // }
-      ctx.app.appNum = ctx.app.appNum + 1
-      console.info(chalk.green(`【${new Date()}】: ctx.app.appNum ${ctx.app.appNum}`))
-      console.info(chalk.green(`【${new Date()}】: this message from schedule [print_visited] task........`))
-      console.info(chalk.green(`【${new Date()}】: this message will print every 10 seconds`))
-    }
-  }
-}
+      ctx.app.appNum = ctx.app.appNum + 1;
+      console.info(chalk.green(`【${new Date()}】: ctx.app.appNum ${ctx.app.appNum}`));
+      console.info(chalk.green(`【${new Date()}】: this message from schedule [print_visited] task........`));
+      console.info(chalk.green(`【${new Date()}】: this message will print every 10 seconds`));
+    },
+  };
+};

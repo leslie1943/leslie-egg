@@ -1,5 +1,5 @@
+/* eslint-disable */
 'use strict';
-
 const Controller = require('egg').Controller;
 
 class SearchController extends Controller {

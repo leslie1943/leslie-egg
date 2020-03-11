@@ -1,3 +1,4 @@
+/* eslint-disable */
 const Controller = require('egg').Controller;
 
 class PostsController extends Controller {

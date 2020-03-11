@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = (options, app) => {
   return async function printIp(ctx, next) {
     /**

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const Service = require('egg').Service;
 
 class MenuService extends Service {
